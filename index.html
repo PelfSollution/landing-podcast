@@ -606,14 +606,13 @@
             min-height: 977px;
             position: relative;
             color: #fff;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
             gap: 50px;
-            padding: 73px 120px;
-            align-items: flex-start;
+            padding: 73px 120px 0 120px;
         }
 
         .speaker-content {
+            flex: 1;
             position: relative;
             max-width: 720px;
             padding-top: 0;
@@ -627,14 +626,6 @@
             height: auto;
             z-index: 1;
             opacity: 0.6;
-        }
-
-        .speaker-quote,
-        .speaker-name,
-        .speaker-role,
-        .company-logo,
-        .speaker-image {
-            opacity: 0;
         }
 
         .speaker-quote {
@@ -666,13 +657,18 @@
             transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
         }
 
-        .speaker-image {
+        .speaker-image-container {
+            position: absolute;
+            right: 120px;
+            bottom: 0;
             width: 698px;
-            height: 859px;
-            object-fit: cover;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s;
+        }
+
+        .speaker-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: bottom;
         }
 
         /* Clases para cuando los elementos son visibles */
@@ -685,96 +681,41 @@
             transform: translate(0) scale(1);
         }
 
-        .wave-box {
-            position: absolute;
-            bottom: 53px;
-            right: 56px;
-            width: 178px;
-            height: 178px;
-            background: linear-gradient(90deg, #937ACB 0%, #D0B3FF 100%);
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 3px 40px rgba(0, 0, 0, 0.03);
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.8s ease-out 0.9s, transform 0.8s ease-out 0.9s;
-        }
-
-        .wave-box.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .wave-icon {
-            width: 92px;
-            height: 55px;
-            object-fit: contain;
-        }
-
-        .company-logo {
-            width: 201px;
-            height: 52px;
-            margin-top: 48px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
-        }
-
         @media (max-width: 1200px) {
             .speaker-section {
-                padding: 50px 30px;
+                padding: 50px 60px 0 60px;
             }
             
             .speaker-image-container {
-                right: 30px;
+                right: 60px;
                 width: 45%;
-                height: auto;
-            }
-            
-            .speaker-quote {
-                font-size: 36px;
             }
         }
 
         @media (max-width: 992px) {
             .speaker-section {
-                grid-template-columns: 1fr;
-                padding-bottom: 400px;
+                flex-direction: column;
+                padding: 40px 30px;
+                min-height: auto;
             }
             
             .speaker-image-container {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                left: 0;
+                position: relative;
+                right: auto;
                 width: 100%;
-                height: auto;
-                padding: 0 30px;
+                max-width: 500px;
+                margin: 0 auto;
             }
             
-            .speaker-image {
-                width: 100%;
-                height: auto;
-                max-height: 600px;
-                object-fit: contain;
+            .speaker-quote {
+                font-size: 36px;
+                margin-top: 70px;
             }
-        }
-
-        @media (max-width: 768px) {
+            
             .quote-image {
                 width: 180px;
                 top: -20px;
                 left: -20px;
-            }
-            
-            .speaker-quote {
-                margin-top: 70px;
-            }
-            
-            .speaker-image {
-                max-height: 400px;
             }
         }
 
@@ -1729,3 +1670,4 @@
     </script>
 </body>
 </html>
+
